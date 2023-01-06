@@ -26,12 +26,16 @@ Resnet50 was used the the pretrained model since it provides very accurate image
 I tuned two parameters: leraning rate and batch size.
 
 The hyperparameter ranges used in tuning:
+
 0.001 <= learning rate <= 0.1,
+
 batch size is a value from the list [128, 256, 512]
 
 After four training jobs with different sets of hyperparameters from the specified ranges (find below screenshots of the first two sets tried), the following hyperparameters gave the best results:
+
 learning rate = 0.0010825259743175316
-batch siez = 128
+
+batch size = 128
 
 ![1st hyperparameters](Screenshots/Tuner-first_training_job.png "1st tried set of hyperparameters")
 ![2nd hyperparameters](Screenshots/Tuner-second_training_job.png "2nd tried set of hyperparameters")
