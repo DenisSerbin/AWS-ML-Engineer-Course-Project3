@@ -22,6 +22,7 @@ Resnet50 was used the the pretrained model since it provides very accurate image
 I tuned two parameters: leraning rate and batch size.
 
 The hyperparameter ranges used in tuning:
+- 0.001 \leqslant learning rate \leqslant 0.1
 - 0.001 <= learning rate <= 0.1,
 - batch size is a value from the list [128, 256, 512]
 
