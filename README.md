@@ -22,7 +22,6 @@ Resnet50 was used the the pretrained model since it provides very accurate image
 I tuned two parameters: leraning rate and batch size.
 
 The hyperparameter ranges used in tuning:
-- 0.001 \leqslant learning rate \leqslant 0.1
 - 0.001 <= learning rate <= 0.1,
 - batch size is a value from the list [128, 256, 512]
 
@@ -56,15 +55,9 @@ The report contains
 - Framework metrics summary
 - Rules summary
 - Training loop analysis
-
-**TODO**: What are the results/insights did you get by profiling/debugging your model?
-
-**TODO** Remember to provide the profiler html/pdf file in your submission.
+- And much more
 
 ## Model Deployment
 **TODO**: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
 
 **TODO** Remember to provide a screenshot of the deployed active endpoint in Sagemaker.
-
-## Standout Suggestions
-**TODO (Optional):** This is where you can provide information about any standout suggestions that you have attempted.
