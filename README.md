@@ -11,10 +11,10 @@ The provided dataset is the dogbreed classification dataset which can be found i
 The data was uploaded to an S3 bucket which was later accessed by SageMaker.
 
 ## Project structure
-- `train_and_deploy.ipynb` - The main file (jupyter notebook) that calls training, testing etc. scripts and outputs the results of the all the steps of the project.
-- `train_model.py` - The Python script which defines the neural network configuration, training and testing functions, data loaders etc. This script is usd by the hyperparameter tuner to find the best set of hyperparameters.
-- `hpo.py` - The Python script based on the `train_model.py` with added debugger monitoring. It is used for moel training with the optimal set of hyperparameters.
-- `inference.py` - The Pythin script used by the deployed endpoint to make classify images based on the trained model.
+- [train_and_deploy.ipynb](train_and_deploy.ipynb) - The main file (jupyter notebook) that calls training, testing etc. scripts and outputs the results of the all the steps of the project.
+- [train_model.py](train_model.py) - The Python script which defines the neural network configuration, training and testing functions, data loaders etc. This script is usd by the hyperparameter tuner to find the best set of hyperparameters.
+- [hpo.py](hpo.py) - The Python script based on the `train_model.py` with added debugger monitoring. It is used for moel training with the optimal set of hyperparameters.
+- [inference.py](inference.py) - The Pythin script used by the deployed endpoint to make classify images based on the trained model.
 
 ## Hyperparameter Tuning
 Resnet50 was used the the pretrained model since it provides very accurate image classification (for various classes of images). The pretrained model was augmented by several layers to produce a dogbreed classifier.
@@ -48,8 +48,14 @@ Below is the graph showing cross entropy loss on the train and validation sets:
 Sagemaker seems to make model debugging and profiling pretty easy. The produced profiling report contains a lot of information about the training process, resource utilization etc.
 
 ### Results
-The profiler report can be found [here](profiler_report.zip)
- 
+A zipped file with the profiler report can be found [here](profiler_report.zip)
+
+The report contains
+- System usage statistics
+- Framework metrics summary
+- Rules summary
+- Training loop analysis
+
 **TODO**: What are the results/insights did you get by profiling/debugging your model?
 
 **TODO** Remember to provide the profiler html/pdf file in your submission.
