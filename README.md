@@ -2,15 +2,13 @@
 In this project AWS Sagemaker is used to load a pretrained model (Resnet50) for general purpose image classification, augment it with several extra layers, train the augmented model, and then perform classification of more specific images (images of dogs to recognize their breeds). All that is done using the Sagemaker debugger, profiler, hyperparameter tuning, and other good ML engineering practices. The provided dog breed classication data set is used for training and testing.
 
 ## Project Set Up and Installation
-Enter AWS through the gateway in the course and open SageMaker Studio: Done.
-Download the starter files: Done
-Download the dataset: Done. 
+SageMaker Studio was run uner my personal AWS account. I downloaded the starter files and the provided dataset.
 
-## Dataset
+### Dataset
 The provided dataset is the dogbreed classification dataset which can be found in the classroom.
 
 ### Access
-Upload the data to an S3 bucket through the AWS Gateway so that SageMaker has access to the data: Done.
+The data was uploaded to an S3 bucket which was later accessed by SageMaker.
 
 ## Project structure
 - `train_and_deploy.ipynb` - The main file (jupyter notebook) that calls training, testing etc. scripts and outputs the results of the all the steps of the project.
