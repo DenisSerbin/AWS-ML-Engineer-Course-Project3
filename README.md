@@ -45,9 +45,11 @@ Below is the graph showing cross entropy loss on the train and validation sets:
 ![Cross entropy loss on the training and validation sets](Screenshots/CrossEntropyLoss.png "Cross entropy loss on the train and validation sets")
 
 ## Debugging and Profiling
-Sagemaker seems to make model debugging and profiling pretty easy. The debugging and profiling reports produced give insights regarding the training process, resource utilization etc.
+Sagemaker seems to make model debugging and profiling pretty easy. The produced profiling report contains a lot of information about the training process, resource utilization etc.
 
 ### Results
+The profiler report can be found [here](profiler_report.zip)
+ 
 **TODO**: What are the results/insights did you get by profiling/debugging your model?
 
 **TODO** Remember to provide the profiler html/pdf file in your submission.
