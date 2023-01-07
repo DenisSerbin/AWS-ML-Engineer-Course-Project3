@@ -1,6 +1,5 @@
 # Image Classification using AWS SageMaker
-
-AWS Sagemaker is used to train a pretrained model (resnet50) that can perform image classification by using the Sagemaker profiling, debugger, hyperparameter tuning and other good ML engineering practices. The provided dog breed classication data set is used for training and testing.
+In this project AWS Sagemaker is used to load a pretrained model (Resnet50) for general purpose image classification, augment it with several extra layers, train the augmented model, and then perform classification of more specific images (images of dogs to recognize their breeds). All that is done using the Sagemaker debugger, profiler, hyperparameter tuning, and other good ML engineering practices. The provided dog breed classication data set is used for training and testing.
 
 ## Project Set Up and Installation
 Enter AWS through the gateway in the course and open SageMaker Studio: Done.
@@ -14,7 +13,6 @@ The provided dataset is the dogbreed classification dataset which can be found i
 Upload the data to an S3 bucket through the AWS Gateway so that SageMaker has access to the data: Done.
 
 ## Project structure
-
 - `train_and_deploy.ipynb` - The main file (jupyter notebook) that calls training, testing etc. scripts and outputs the results of the all the steps of the project.
 - `train_model.py` - The Python script which defines the neural network configuration, training and testing functions, data loaders etc. This script is usd by the hyperparameter tuner to find the best set of hyperparameters.
 - `hpo.py` - The Python script based on the `train_model.py` with added debugger monitoring. It is used for moel training with the optimal set of hyperparameters.
@@ -29,20 +27,24 @@ The hyperparameter ranges used in tuning:
 - 0.001 <= learning rate <= 0.1,
 - batch size is a value from the list [128, 256, 512]
 
-After four training jobs with different sets of hyperparameters from the specified ranges (find below screenshots of the first two sets tried), the following hyperparameters gave the best results:
-- learning rate = 0.0010825259743175316
-- batch size = 128
+A tuner with four training jobs was created. Below are screenshots of two sets of hyperparameters with the resulting acuracies on the test set.
 
-![1st hyperparameters](Screenshots/Tuner-first_training_job.png "1st tried set of hyperparameters")
-![2nd hyperparameters](Screenshots/Tuner-second_training_job.png "2nd tried set of hyperparameters")
+The first set
+![1st set of hyperparameters](Screenshots/Tuner-1st_training_job.png "1st set of hyperparameters")
+![1st set metrics](Screenshots/Training_metrics_1st_set.png "1st set metrics")
+
+The second set
+![2nd set of hyperparameters](Screenshots/Tuner-2nd_training_job.png "2nd set of hyperparameters")
+![2nd set metrics](Screenshots/Training_metrics_2nd_set.png "2nd set metrics")
 
 ## Best hyperparameters training job:
-
-![Logs metrics during the training process](Screenshots/Training_metrics.png "Logs metrics during the training process")
-
-![Cross entropy loss on the training and validation sets](Screenshots/CrossEntropyLoss.png "Cross entropy loss on the train and validation sets")
-
+After four runs, the following hyperparameters gave the best results:
+![Best set of hyperparameters](Screenshots/Tuner-best_training_job.png "Best set of hyperparameters")
+![Best set metrics](Screenshots/Training_metrics_best_set.png "Best set metrics")
 ![Training job](Screenshots/Training_job_completed.png "Training job")
+
+Below is the graph showing cross entropy loss on the train and validation sets:
+![Cross entropy loss on the training and validation sets](Screenshots/CrossEntropyLoss.png "Cross entropy loss on the train and validation sets")
 
 ## Debugging and Profiling
 Sagemaker seems to make model debugging and profiling pretty easy. The debugging and profiling reports produced give insights regarding the training process, resource utilization etc.
