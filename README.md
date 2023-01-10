@@ -14,7 +14,7 @@ The data was uploaded to an S3 bucket which was later accessed by SageMaker.
 - [train_and_deploy.ipynb](train_and_deploy.ipynb) - The main file (jupyter notebook) that calls training, testing etc. scripts and outputs the results of the all the steps of the project.
 - [train_model.py](train_model.py) - The Python script which defines the neural network configuration, training and testing functions, data loaders etc. This script is usd by the hyperparameter tuner to find the best set of hyperparameters.
 - [hpo.py](hpo.py) - The Python script based on the `train_model.py` with added debugger monitoring. It is used for moel training with the optimal set of hyperparameters.
-- [inference.py](inference.py) - The Pythin script used by the deployed endpoint to make classify images based on the trained model.
+- [inference.py](inference.py) - The Python script used by the deployed endpoint to make classify images based on the trained model.
 
 ## Hyperparameter Tuning
 Resnet50 was used the the pretrained model since it provides very accurate image classification (for various classes of images). The pretrained model was augmented by several layers to produce a dogbreed classifier.
@@ -58,6 +58,8 @@ The report contains
 - And much more
 
 ## Model Deployment
-**TODO**: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
+The model ws deployed on an ml.p3.2xlarge instance using the [inference.py](inference.py) script. One can use the following code to make an inference:
+![Inference](Screenshots/Inference.png "Inference")
+where "prediction" is the class number of the breed returned by the model.
 
 ![Deployed endpoint](Screenshots/Endpoint_created.png "Deployed endpoint")
