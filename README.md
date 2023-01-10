@@ -60,4 +60,4 @@ The report contains
 ## Model Deployment
 **TODO**: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
 
-**TODO** Remember to provide a screenshot of the deployed active endpoint in Sagemaker.
+![Deployed endpoint](Screenshots/Endpoint_created.png "Deployed endpoint")
