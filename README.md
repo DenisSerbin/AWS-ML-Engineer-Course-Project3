@@ -58,8 +58,8 @@ The report contains
 - And much more
 
 ## Model Deployment
-The model ws deployed on an ml.p3.2xlarge instance using the [inference.py](inference.py) script. One can use the following code to make an inference:
+The model ws deployed on an ml.p3.2xlarge instance using the [inference.py](inference.py) script.
+![Deployed endpoint](Screenshots/Endpoint_created.png "Deployed endpoint")
+One can use the following code to make an inference:
 ![Inference](Screenshots/Inference.png "Inference")
 where "prediction" is the class number of the breed returned by the model.
-
-![Deployed endpoint](Screenshots/Endpoint_created.png "Deployed endpoint")
