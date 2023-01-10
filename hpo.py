@@ -62,6 +62,7 @@ def test(model, test_loader, criterion, device, hook):
             total_loss, running_corrects, len(test_loader.dataset), 100.0 * total_acc
         ))
 
+        
 def train(model, train_loader, validation_loader, criterion, optimizer, device, hook, epochs = 20):
     '''
     TODO: Complete this function that can take a model and
@@ -139,7 +140,8 @@ def train(model, train_loader, validation_loader, criterion, optimizer, device, 
     model.load_state_dict(best_model_wts)
     
     return model
-    
+
+
 def net():
     '''
     TODO: Complete this function that initializes your model
@@ -222,6 +224,8 @@ def main(args):
     TODO: Create your loss and optimizer
     '''
     criterion = nn.CrossEntropyLoss()
+    hook.register_loss(criterion)
+    
     optimizer = optim.RMSprop(model.fc.parameters(), lr = args.lr)
     
     '''
@@ -238,7 +242,13 @@ def main(args):
     '''
     TODO: Save the trained model
     '''
-    torch.save(model, os.path.join(args.model_dir, 'model'))
+    
+    save_path = args.model_dir + "/model.pth"
+    logger.info(f"Saving model to {save_path}")
+    torch.save(model.state_dict(), save_path)
+    logger.info(f"Model saved!")
+    #torch.save(model.state_dict(), os.path.join(args.model_dir, 'model.pth'))
+    #torch.save(model, os.path.join(args.model_dir, 'model'))
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

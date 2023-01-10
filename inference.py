@@ -16,6 +16,7 @@ logger.setLevel(logging.DEBUG)
 logger.addHandler(logging.StreamHandler(sys.stdout))
 JSON_CONTENT_TYPE = 'application/json'
 JPEG_CONTENT_TYPE = 'image/jpeg'
+ACCEPTED_CONTENT_TYPE = [ JPEG_CONTENT_TYPE ]
 
 
 def net():
@@ -40,15 +41,23 @@ def net():
 
 
 def model_fn(model_dir):
-    logger.info("In model_fn. Model directory is ")
-    logger.info(model_dir)
+    logger.info("In model_fn. Model directory is -", model_dir)
+
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = net().to(device)
+    model = net()
     
     with open(os.path.join(model_dir, "model.pth"), "rb") as f:
-        logger.info("Loading the dog-classifier model")
-        model.load_state_dict(torch.load(f, map_location = device))
+        logger.info("Loading the dog-classifier model.")
+        logger.info("Model_dir content: ")
+        logger.info(os.listdir(model_dir))
+        checkpoint = torch.load(f, map_location = device)
+        model.load_state_dict(checkpoint)
+        #model.load_state_dict(torch.load(f, map_location = device))
         logger.info('Model loaded successfully')
+    
+    model.eval()
+    model.to(device)
+    
     return model
 
 

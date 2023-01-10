@@ -234,7 +234,13 @@ def main(args):
     '''
     TODO: Save the trained model
     '''
-    torch.save(model, os.path.join(args.model_dir, 'model'))
+    
+    save_path = args.model_dir + "/model.pth"
+    logger.info(f"Saving model to {save_path}")
+    torch.save(model.state_dict(), save_path)
+    logger.info(f"Model saved!")
+    #torch.save(model.state_dict(), os.path.join(args.model_dir, 'model.pth'))
+    #torch.save(model, os.path.join(args.model_dir, 'model'))
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
